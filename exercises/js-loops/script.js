@@ -44,30 +44,49 @@ var familyMembers = [
     {
         name: 'King',
         age: 1
+    },
+    {
+        name: 'Thore',
+        age: 'jshbjlashbd'
     }
 ];
 
-console.log(familyMembers);
-
 
 function familyData () {
-    var oldestNow = 0;
-    var oldest;
+    var message;
+    var intro;
     for (var i = 0; i < familyMembers.length; i++) {
-        console.log(familyMembers[i].name + ' is ' + familyMembers[i].age + ' years old.');
+        intro = familyMembers[i].name + ' is ' + familyMembers[i].age + ' years old.';
+        
         if(familyMembers[i].age >= 21) {
-            console.log(familyMembers[i].name + ' is old enough to drink, yay!!!');
+        message = familyMembers[i].name + ' is old enough to drink, yay!!!';
         }
-        if(familyMembers[i].age <= 21) {
-            console.log(familyMembers[i].name + ' is not old enough to drink, too little!');
+        
+        if(familyMembers[i].age < 21) {
+        message = familyMembers[i].name + ' is not old enough to drink, too little!';
         }
-        else if(familyMembers[i].age > oldestNow) {
-            oldest = familyMembers[i];
-            oldestNow = familyMembers[i].age
+        else 
+        {
+        message ='You are too underdressed to join us at the bar this evening.';
         }
+        console.log(intro);
+        console.log(message);
     }
-    return oldest.name + ' you are the oldest member of this family!';
+
 }
 
-var oldestMember = familyData();
-console.log(oldestMember);
+familyData();
+var oldest = 0;
+
+function whoIsOlder(family) {
+        for (i = 0; i < family.length; i++) {
+
+            if (family[i].age > oldest) {
+                oldest = family[i].age; 
+            }
+
+        }
+        console.log(oldest + ' is the oldest.');
+}
+
+whoIsOlder(familyMembers);
