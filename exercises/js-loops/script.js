@@ -76,17 +76,20 @@ function familyData () {
 }
 
 familyData();
-var oldest = 0;
+var oldest = {
+    name: '',
+    age: 0
+};
 
 function whoIsOlder(family) {
         for (i = 0; i < family.length; i++) {
-
-            if (family[i].age > oldest) {
-                oldest = family[i].age; 
+            
+            if (family[i].age > oldest.age) {
+                oldest = family[i]; 
             }
 
         }
-        console.log(oldest + ' is the oldest.');
+        console.log(oldest.name + ' is ' + oldest.age + ' and the oldest member of this family.');
 }
 
 whoIsOlder(familyMembers);
